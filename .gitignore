@@ -1,0 +1,8 @@
+/node_modules
+/*.iml
+/.idea
+/coverage
+/PRIV
+/package-lock.json
+/npm-debug.log
+/.nyc_output

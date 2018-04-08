@@ -1,0 +1,63 @@
+{
+  "name": "jsonbird-websocket",
+  "version": "1.0.0",
+  "description": "JSONBird-WebSocket makes it easy to establish a JSON-RPC 2.0 client connection over WebSocket so that you can send and receive Remote Procedure Calls. It works in node.js and web browsers. If the connection closes or is unresponsive, an automatic reconnection will occur after a delay. This delay will slowly increase to avoid spamming the server.",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint bin lib test && echo Lint free!",
+    "test:unit": "NODE_ENV=development mocha 'test/**/*.test.js'",
+    "test:unit:coverage": "NODE_ENV=development nyc --all mocha 'test/**/*.test.js'",
+    "test:unit:coverage:report": "nyc report --reporter=html",
+    "test:unit:coveralls": "npm run test:unit:coverage && nyc report --reporter=text-lcov | coveralls",
+    "test": "npm run lint && npm run test:unit:coverage && npm run test:unit:coverage:report",
+    "doc": "cat readme-header.md > README.md && jsdoc2md --files \"lib/WebSocketClient.js\" >> README.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joris-van-der-Wel/jsonbird-websocket.git"
+  },
+  "keywords": [
+    "json",
+    "rpc",
+    "WebSocket",
+    "WebSockets",
+    "api",
+    "client",
+    "jsonrpc"
+  ],
+  "author": "Joris van der Wel <joris@jorisvanderwel.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Joris-van-der-Wel/jsonbird-websocket/issues"
+  },
+  "homepage": "https://github.com/Joris-van-der-Wel/jsonbird-websocket#readme",
+  "nyc": {
+    "include": [
+      "lib/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-plugin-import": "^2.10.0",
+    "jsdoc-to-markdown": "^4.0.1",
+    "mocha": "^5.0.5",
+    "mocha-sugar-free": "^1.3.1",
+    "nyc": "^11.6.0",
+    "sinon": "^4.5.0",
+    "ws": "^5.1.1"
+  },
+  "dependencies": {
+    "isomorphic-ws": "^4.0.0",
+    "jsonbird": "^3.1.0"
+  },
+  "peerDependencies": {
+    "ws": ">=5"
+  }
+}
