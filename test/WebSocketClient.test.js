@@ -237,7 +237,8 @@ describe('WebSocketClient', () => {
                     else {
                         data.result = true;
                     }
-                    wsMockState.mockEvents.emit('message', { // (MessageEvent)
+                    wsMockState.mockEvents.emit('message', {
+                        // (MessageEvent)
                         type: 'message',
                         data: JSON.stringify(data),
                     });
@@ -272,7 +273,8 @@ describe('WebSocketClient', () => {
             const rpcMessage = JSON.parse(ws.send.args[0][0]);
             deq(rpcMessage, {jsonrpc: '2.0', id: rpcMessage.id, method: 'foo', params: [123]});
 
-            wsMockState.mockEvents.emit('message', { // (MessageEvent)
+            wsMockState.mockEvents.emit('message', {
+                // (MessageEvent)
                 type: 'message',
                 data: JSON.stringify({jsonrpc: '2.0', id: rpcMessage.id, result: 456}),
             });
@@ -817,7 +819,8 @@ describe('WebSocketClient', () => {
 
             lengthOf(errors, 0);
             await wait.waitForSideEffect(1, () => {
-                wsMockState.mockEvents.emit('message', { // (MessageEvent)
+                wsMockState.mockEvents.emit('message', {
+                    // (MessageEvent)
                     type: 'message',
                     data: JSON.stringify({jsonrpc: '1.5', id: 'foo', method: 'foo'}),
                 });

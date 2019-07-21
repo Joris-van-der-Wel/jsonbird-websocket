@@ -7,7 +7,7 @@
     "lib"
   ],
   "scripts": {
-    "lint": "eslint bin lib test && echo Lint free!",
+    "lint": "eslint lib test && echo Lint free!",
     "test:unit": "NODE_ENV=development mocha 'test/**/*.test.js'",
     "test:unit:coverage": "NODE_ENV=development nyc --all mocha 'test/**/*.test.js'",
     "test:unit:coverage:report": "nyc report --reporter=html",
@@ -44,7 +44,7 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "coveralls": "^3.0.0",
-    "eslint": "^4.19.1",
+    "eslint": "^6.1.0",
     "eslint-plugin-import": "^2.10.0",
     "jsdoc-to-markdown": "^4.0.1",
     "mocha": "^6.2.0",
